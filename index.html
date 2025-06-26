@@ -6,7 +6,154 @@
   <title>The Fluxari</title>
   <link rel="icon" href="logo.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --color-bg: #fff;
+      --color-text: #000;
+      --bar1: #4caf50;
+      --bar2: #2196f3;
+      --bar3: #ff9800;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 1s;
+    }
+
+    .btn {
+      border: 1px solid #000;
+      padding: 0.7rem 1.5rem;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      background: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 4rem 2rem;
+      background: #f8f8f8;
+    }
+
+    .feature {
+      flex: 1 1 30%;
+      padding: 1.5rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    .feature.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .graphs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .bar-container {
+      width: 80px;
+      height: 200px;
+      background: #eee;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .bar {
+      width: 100%;
+      height: 0;
+      position: absolute;
+      bottom: 0;
+      transition: height 2s ease;
+    }
+
+    .bar1 { background-color: var(--bar1); }
+    .bar2 { background-color: var(--bar2); }
+    .bar3 { background-color: var(--bar3); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: #000;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .graphs {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,17 +171,15 @@
   <section class="about" id="about">
     <p>
       The Fluxari is a dedicated regional dropshipping and fulfillment partner designed to simplify e-commerce logistics for growing businesses. Leveraging strategically located micro-fulfillment centers, we offer fast and cost-effective order handling that powers superior customer experiences.<br><br>
-
       The global micro‑fulfillment market is projected to reach $37–38 billion by 2030, growing at nearly 35% CAGR—signaling the strategic shift brands are making toward agile, local logistics networks.<br><br>
-
       At The Fluxari, we're proud to lead this transformation—providing brands with intelligent fulfillment that’s fast, efficient, and built for today’s demands. We’re more than a logistics provider—we’re your partner in growth. From automated micro‑hubs and live systems to reliable carrier relationships and real-time responsiveness, The Fluxari empowers you to scale confidently—without the overhead or complexity of warehousing.
     </p>
   </section>
 
   <section class="graphs">
-    <div class="bar-container"><div class="bar" style="height: 0%;" data-height="75%"></div></div>
-    <div class="bar-container"><div class="bar" style="height: 0%;" data-height="60%"></div></div>
-    <div class="bar-container"><div class="bar" style="height: 0%;" data-height="90%"></div></div>
+    <div class="bar-container"><div class="bar bar1" style="height: 0%;" data-height="75%"></div></div>
+    <div class="bar-container"><div class="bar bar2" style="height: 0%;" data-height="60%"></div></div>
+    <div class="bar-container"><div class="bar bar3" style="height: 0%;" data-height="90%"></div></div>
   </section>
 
   <footer>
@@ -42,6 +187,29 @@
     <div style="margin-top: 0.5rem;">[social icons placeholder]</div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const features = document.querySelectorAll('.feature');
+    const bars = document.querySelectorAll('.bar');
+
+    const onScroll = () => {
+      features.forEach((el) => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+
+      bars.forEach((bar) => {
+        const top = bar.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100 && !bar.classList.contains('animated')) {
+          bar.style.height = bar.dataset.height;
+          bar.classList.add('animated');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll);
+  </script>
 </body>
 </html>

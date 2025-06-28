@@ -44,7 +44,6 @@
 
     .logo-banner img {
       max-height: 80px;
-      height: auto;
     }
 
     header {
@@ -164,10 +163,9 @@
       font-family: 'Inter', sans-serif;
     }
 
-    #insta-box iframe {
-      border: none;
-      width: 100%;
-      height: 380px;
+    #insta-embed blockquote {
+      width: 100% !important;
+      max-width: 100%;
     }
 
     @keyframes fadeIn {
@@ -235,7 +233,7 @@
   <!-- Instagram Preview -->
   <div id="insta-box">
     <p>From Our Instagram</p>
-    <iframe id="insta-frame" src="" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+    <div id="insta-embed"></div>
   </div>
 
   <!-- Footer -->
@@ -244,9 +242,9 @@
     <div style="margin-top: 0.5rem;">[social icons placeholder]</div>
   </footer>
 
-  <!-- Scroll & Insta Scripts -->
+  <!-- Scripts -->
   <script>
-    // Tile Reveal
+    // Scroll reveal for tiles
     const tiles = document.querySelectorAll('.tile');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -258,19 +256,31 @@
     }, { threshold: 0.2 });
     tiles.forEach(tile => observer.observe(tile));
 
-    // Instagram Preview Loader
+    // Instagram JSON Embed
     async function loadInstagramPost() {
       try {
-        const response = await fetch('links.txt');
-        const text = await response.text();
-        const links = text.trim().split('\n').filter(Boolean);
+        const res = await fetch('links.json');
+        const links = await res.json();
         if (links.length > 0) {
           const randomLink = links[Math.floor(Math.random() * links.length)];
-          const embedUrl = `https://www.instagram.com/embed?url=${encodeURIComponent(randomLink)}`;
-          document.getElementById('insta-frame').src = embedUrl;
+          const embedHtml = `
+            <blockquote class="instagram-media" data-instgrm-permalink="${randomLink}" data-instgrm-version="14" style="width:100%; max-width:100%;"></blockquote>
+          `;
+          document.getElementById("insta-embed").innerHTML = embedHtml;
+
+          // Load Instagram script if not already loaded
+          if (!window.instgrm) {
+            const script = document.createElement('script');
+            script.src = "https://www.instagram.com/embed.js";
+            script.async = true;
+            script.onload = () => window.instgrm.Embeds.process();
+            document.body.appendChild(script);
+          } else {
+            window.instgrm.Embeds.process();
+          }
         }
-      } catch (error) {
-        console.error("Couldn't load Instagram links:", error);
+      } catch (err) {
+        console.error("Instagram embed failed:", err);
       }
     }
 

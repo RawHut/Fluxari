@@ -28,265 +28,69 @@
       overflow-x: hidden;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .logo-banner {
-      width: 100%;
-      padding: 1rem 2rem;
+    .from-us-section {
       text-align: center;
-      background: #fff;
-      border-bottom: 1px solid #eee;
+      margin: 3rem 0 2rem;
+      padding: 0 1rem;
     }
 
-    .logo-banner img {
-      max-height: 80px;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 2rem;
-    }
-
-    header h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+    .from-us-section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 1px;
       margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
     }
 
-    header p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      max-width: 700px;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards 1s;
-    }
-
-    .btn {
-      border: 1px solid #000;
-      padding: 0.7rem 1.5rem;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      background: none;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .btn:hover {
-      background: #000;
-      color: #fff;
-    }
-
-    .tiles {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      padding: 4rem 2rem;
-    }
-
-    .tile {
+    .insta-preview {
+      max-width: 340px;
+      margin: 0 auto;
+      background: #fff;
       border: 1px solid #000;
       border-radius: 10px;
-      padding: 2rem;
-      text-align: center;
-      width: 220px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .shop-btn {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid #000;
+      background: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(30px);
     }
 
-    .tile.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .tile:hover {
+    .shop-btn:hover {
       background: #000;
       color: #fff;
-    }
-
-    .tile button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: none;
-      border: 1px solid #000;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .tile:hover button {
-      background: #fff;
-      color: #000;
-    }
-
-    .about {
-      max-width: 900px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-      text-align: center;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards 0.5s;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background: #000;
-      color: #fff;
-    }
-
-    .from-us-title {
-      text-align: center;
-      margin: 2rem 0 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 1px;
-    }
-
-    #insta-toggle-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      border-top: 1px solid #000;
-      padding: 0.7rem 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      font-family: 'Inter', sans-serif;
-      z-index: 999;
-    }
-
-    #insta-preview {
-      display: none;
-      position: fixed;
-      bottom: 3.5rem;
-      right: 1rem;
-      width: 320px;
-      background: #fff;
-      border: 1px solid #000;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      padding: 0.5rem;
-      max-height: 420px;
-      overflow: auto;
-      z-index: 1000;
-    }
-
-    #insta-preview .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    #insta-embed blockquote {
-      width: 100% !important;
-      max-width: 100%;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
+      transform: scale(1.05);
     }
 
     @media (max-width: 500px) {
-      #insta-preview {
-        width: 95%;
-        right: 2.5%;
+      .insta-preview {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Logo -->
-  <div class="logo-banner">
-    <img src="logo.png" alt="Fluxari Logo" />
+
+  <!-- Logo, Header, Tiles, About, Footer (insert your existing homepage content above here) -->
+
+  <!-- From Us Section -->
+  <div class="from-us-section">
+    <h2>— From Us —</h2>
+    <div class="insta-preview">
+      <div id="insta-embed"></div>
+      <button class="shop-btn" onclick="window.location.href='products.html'">Shop With Us</button>
+    </div>
   </div>
 
-  <!-- Hero -->
-  <header>
-    <h1>The Fluxari</h1>
-    <p>
-      At Fluxari, we don’t just offer dropshipping — we redefine it. Our service is built for modern entrepreneurs who expect more than just basic fulfillment. We provide a streamlined, high-performance dropshipping system that connects you with reliable suppliers, fast shipping options, and a product catalog that actually converts.
-    </p>
-    <button class="btn" onclick="window.location.href='products.html'">Shop Now</button>
-  </header>
-
-  <!-- Tiles -->
-  <section class="tiles" id="tiles">
-    <div class="tile">
-      <h3>Products</h3>
-      <p>Explore our curated catalog</p>
-      <button onclick="window.location.href='products.html'">View</button>
-    </div>
-    <div class="tile">
-      <h3>About Us</h3>
-      <p>Learn who we are and what we do</p>
-      <button onclick="window.location.href='about.html'">Read</button>
-    </div>
-    <div class="tile">
-      <h3>Contact</h3>
-      <p>Let's connect and grow together</p>
-      <button onclick="window.location.href='contact.html'">Reach Out</button>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="about">
-    <p>
-      No more delays, poor packaging, or questionable quality. With Fluxari, you gain a partner who’s committed to helping your business run smoother, sell faster, and grow stronger. Whether you're launching your first store or scaling an existing brand, Fluxari delivers the consistency and quality that set you apart from the competition.
-    </p>
-    <p style="margin-top: 1rem; font-weight: bold;">We redefine dropshipping. Shop now.</p>
-  </section>
-
-  <!-- "From Us" Section -->
-  <div class="from-us-title">— From Us —</div>
-  <div id="insta-toggle-bar">
-    <button onclick="toggleInstaPreview()" class="btn">View Post</button>
-  </div>
-
-  <div id="insta-preview">
-    <div class="header">
-      <span style="font-weight: 600;">Instagram Post</span>
-      <button onclick="toggleInstaPreview()" style="background:none; border:none; font-size:1rem; cursor:pointer;">✕</button>
-    </div>
-    <div id="insta-embed" style="margin-top: 0.5rem;"></div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div>© 2025 The Fluxari. All rights reserved.</div>
-    <div style="margin-top: 0.5rem;">[social icons placeholder]</div>
-  </footer>
-
-  <!-- Scripts -->
   <script>
-    const tiles = document.querySelectorAll('.tile');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    tiles.forEach(tile => observer.observe(tile));
-
-    let instaVisible = false;
     let links = [];
-    let intervalId;
 
     async function loadLinks() {
       try {
@@ -294,20 +98,13 @@
         links = await res.json();
         if (links.length > 0) {
           showInstagramPost();
-          intervalId = setInterval(() => {
-            if (instaVisible) showInstagramPost();
-          }, 15000);
+          setInterval(() => {
+            showInstagramPost();
+          }, 15000); // rotate every 15s
         }
       } catch (err) {
         console.error("Instagram embed failed:", err);
       }
-    }
-
-    function toggleInstaPreview() {
-      instaVisible = !instaVisible;
-      const preview = document.getElementById("insta-preview");
-      preview.style.display = instaVisible ? "block" : "none";
-      if (instaVisible) showInstagramPost();
     }
 
     function showInstagramPost() {
@@ -316,7 +113,6 @@
         <blockquote class="instagram-media" data-instgrm-permalink="${links[randomIndex]}" data-instgrm-version="14" style="width:100%; max-width:100%;"></blockquote>
       `;
       document.getElementById("insta-embed").innerHTML = embedHtml;
-
       if (!window.instgrm) {
         const script = document.createElement('script');
         script.src = "https://www.instagram.com/embed.js";

@@ -6,39 +6,174 @@
   <title>The Fluxari</title>
   <link rel="icon" href="logo.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --color-bg: #fff;
+      --color-text: #000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 1s;
+    }
+
+    .btn {
+      border: 1px solid #000;
+      padding: 0.7rem 1.5rem;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      background: none;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .tiles {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 4rem 2rem;
+    }
+
+    .tile {
+      border: 1px solid #000;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      width: 220px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .tile.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tile:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .tile button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: none;
+      border: 1px solid #000;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .tile:hover button {
+      background: #fff;
+      color: #000;
+    }
+
+    .about {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 0.5s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: #000;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .tiles {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>The Fluxari</h1>
-    <p>Your Partner in Smart Fulfillment</p>
-    <button class="btn" onclick="document.getElementById('cards').scrollIntoView({ behavior: 'smooth' })">Learn More</button>
+    <p>
+      At Fluxari, we don’t just offer dropshipping — we redefine it. Our service is built for modern entrepreneurs who expect more than just basic fulfillment. We provide a streamlined, high-performance dropshipping system that connects you with reliable suppliers, fast shipping options, and a product catalog that actually converts.
+    </p>
+    <button class="btn" onclick="window.location.href='products.html'">Shop Now</button>
   </header>
 
-  <section class="cards" id="cards">
-    <div class="card">
-      <div class="card-icon">🚚</div>
-      <h3>Fast Delivery</h3>
-      <p>90% of orders ship within 24 hours of placement.</p>
+  <section class="tiles" id="tiles">
+    <div class="tile">
+      <h3>Products</h3>
+      <p>Explore our curated catalog</p>
+      <button onclick="window.location.href='products.html'">View</button>
     </div>
-    <div class="card">
-      <div class="card-icon">📦</div>
-      <h3>Smart Packaging</h3>
-      <p>Eco-friendly, shrink-wrapped efficiency for every package.</p>
+    <div class="tile">
+      <h3>About Us</h3>
+      <p>Learn who we are and what we do</p>
+      <button onclick="window.location.href='about.html'">Read</button>
     </div>
-    <div class="card">
-      <div class="card-icon">🔄</div>
-      <h3>Real-Time Tracking</h3>
-      <p>Live status updates, straight to your dashboard.</p>
+    <div class="tile">
+      <h3>Contact</h3>
+      <p>Let's connect and grow together</p>
+      <button onclick="window.location.href='contact.html'">Reach Out</button>
     </div>
   </section>
 
-  <section class="about" id="about">
+  <section class="about">
     <p>
-      The Fluxari is a dedicated regional dropshipping and fulfillment partner designed to simplify e-commerce logistics for growing businesses. Leveraging strategically located micro-fulfillment centers, we offer fast and cost-effective order handling that powers superior customer experiences.<br><br>
-      The global micro‑fulfillment market is projected to reach $37–38 billion by 2030, growing at nearly 35% CAGR—signaling the strategic shift brands are making toward agile, local logistics networks.<br><br>
-      At The Fluxari, we're proud to lead this transformation—providing brands with intelligent fulfillment that’s fast, efficient, and built for today’s demands. We’re more than a logistics provider—we’re your partner in growth. From automated micro‑hubs and live systems to reliable carrier relationships and real-time responsiveness, The Fluxari empowers you to scale confidently—without the overhead or complexity of warehousing.
+      No more delays, poor packaging, or questionable quality. With Fluxari, you gain a partner who’s committed to helping your business run smoother, sell faster, and grow stronger. Whether you're launching your first store or scaling an existing brand, Fluxari delivers the consistency and quality that set you apart from the competition.
     </p>
+    <p style="margin-top: 1rem; font-weight: bold;">We redefine dropshipping. Shop now.</p>
   </section>
 
   <footer>
@@ -46,6 +181,18 @@
     <div style="margin-top: 0.5rem;">[social icons placeholder]</div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const tiles = document.querySelectorAll('.tile');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    tiles.forEach(tile => observer.observe(tile));
+  </script>
 </body>
 </html>

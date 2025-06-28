@@ -148,6 +148,28 @@
       color: #fff;
     }
 
+    #insta-box {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: #fff;
+      border: 1px solid #000;
+      border-radius: 8px;
+      width: 320px;
+      padding: 0.5rem;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+    }
+
+    #insta-box iframe {
+      border: none;
+      width: 100%;
+      height: 380px;
+    }
+
     @keyframes fadeIn {
       to { opacity: 1; }
     }
@@ -160,6 +182,10 @@
 
       .logo-banner img {
         max-height: 60px;
+      }
+
+      #insta-box {
+        display: none;
       }
     }
   </style>
@@ -206,14 +232,21 @@
     <p style="margin-top: 1rem; font-weight: bold;">We redefine dropshipping. Shop now.</p>
   </section>
 
+  <!-- Instagram Preview -->
+  <div id="insta-box">
+    <p>From Our Instagram</p>
+    <iframe id="insta-frame" src="" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div>© 2025 The Fluxari. All rights reserved.</div>
     <div style="margin-top: 0.5rem;">[social icons placeholder]</div>
   </footer>
 
-  <!-- Scroll Animations -->
+  <!-- Scroll & Insta Scripts -->
   <script>
+    // Tile Reveal
     const tiles = document.querySelectorAll('.tile');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -223,8 +256,25 @@
         }
       });
     }, { threshold: 0.2 });
-
     tiles.forEach(tile => observer.observe(tile));
+
+    // Instagram Preview Loader
+    async function loadInstagramPost() {
+      try {
+        const response = await fetch('links.txt');
+        const text = await response.text();
+        const links = text.trim().split('\n').filter(Boolean);
+        if (links.length > 0) {
+          const randomLink = links[Math.floor(Math.random() * links.length)];
+          const embedUrl = `https://www.instagram.com/embed?url=${encodeURIComponent(randomLink)}`;
+          document.getElementById('insta-frame').src = embedUrl;
+        }
+      } catch (error) {
+        console.error("Couldn't load Instagram links:", error);
+      }
+    }
+
+    loadInstagramPost();
   </script>
 </body>
 </html>

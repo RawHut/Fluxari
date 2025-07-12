@@ -37,10 +37,32 @@
       padding: 1rem 2rem;
       text-align: center;
       border-bottom: 1px solid var(--color-border);
+      position: relative;
     }
 
     .logo-banner img {
       max-height: 80px;
+    }
+
+    .home-btn {
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      color: var(--color-text);
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background: #222;
+      color: #fff;
     }
 
     header {
@@ -64,41 +86,12 @@
       animation: fadeSlideIn 2s ease forwards 0.5s;
     }
 
-    .contact-panel {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      text-align: center;
-      font-size: 1.05rem;
-      color: var(--color-accent);
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      animation: fadeSlideIn 1.5s ease forwards 0.3s;
-    }
-
-    .contact-panel p {
-      margin: 1rem 0;
-    }
-
-    .contact-panel a {
-      color: var(--color-text);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
-    }
-
-    .contact-panel a:hover {
-      border-bottom: 1px solid var(--color-text);
-    }
-
     .tiles {
       display: flex;
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
-      padding: 4rem 2rem;
+      padding: 4rem 2rem 2rem;
     }
 
     .tile {
@@ -150,6 +143,35 @@
       color: #fff;
     }
 
+    .contact-panel {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--color-accent);
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      animation: fadeSlideIn 1.5s ease forwards 0.3s;
+    }
+
+    .contact-panel p {
+      margin: 1rem 0;
+    }
+
+    .contact-panel a {
+      color: var(--color-text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .contact-panel a:hover {
+      border-bottom: 1px solid var(--color-text);
+    }
+
     footer {
       background: #111;
       color: #ccc;
@@ -174,17 +196,13 @@
 
   <div class="logo-banner">
     <img src="logo.png" alt="Fluxari Logo" />
+    <button class="home-btn" onclick="window.location.href='index.html'">Home</button>
   </div>
 
   <header>
     <h1>Contact Us</h1>
     <p>Need to get in touch? Here's how you can reach out to The Fluxari.</p>
   </header>
-
-  <section class="contact-panel">
-    <p>Email us at: <a href="mailto:fluxariindex@gmail.com">fluxariindex@gmail.com</a></p>
-    <p>Follow us on Instagram: <a href="https://instagram.com/thefluxari" target="_blank">@thefluxari</a></p>
-  </section>
 
   <section class="tiles" id="tiles">
     <div class="tile">
@@ -197,6 +215,11 @@
       <p>DM us directly or check our updates</p>
       <button onclick="window.open('https://instagram.com/thefluxari', '_blank')">Open Insta</button>
     </div>
+  </section>
+
+  <section class="contact-panel">
+    <p>Email us at: <a href="mailto:fluxariindex@gmail.com">fluxariindex@gmail.com</a></p>
+    <p>Follow us on Instagram: <a href="https://instagram.com/thefluxari" target="_blank">@thefluxari</a></p>
   </section>
 
   <footer>

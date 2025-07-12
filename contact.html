@@ -3,131 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us | Fluxari</title>
-
-  <!-- Luxurious Fonts + AOS -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <title>Contact Us | The Fluxari</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* Reset + Font Setup */
+    :root {
+      --font-heading: 'DM Serif Display', serif;
+      --font-body: 'IBM Plex Sans', sans-serif;
+      --color-bg: #fdfcfb;
+      --color-text: #222;
+      --color-accent: #555;
+      --color-border: #ddd;
+      --hover-bg: #f0f0f0;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(-45deg, #0f0f0f, #1e1e1e, #121212, #000000);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
-      color: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      min-height: 100vh;
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
     }
 
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    .container {
-      max-width: 600px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 0 30px rgba(185, 131, 255, 0.1);
+    .logo-banner {
+      padding: 1rem 2rem;
       text-align: center;
+      border-bottom: 1px solid var(--color-border);
     }
 
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.5rem;
-      color: #ffffff;
-      text-shadow: 0 0 15px rgba(185, 131, 255, 0.3);
-      margin-bottom: 10px;
+    .logo-banner img {
+      max-height: 80px;
     }
 
-    .accent {
-      background: linear-gradient(to right, #00ffc8, #b983ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    header {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
     }
 
-    p.tagline {
-      font-size: 1.1rem;
-      color: #aaaaaa;
-      margin-bottom: 40px;
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeSlideIn 1.5s ease forwards;
     }
 
-    .contact-links {
-      font-size: 1.2rem;
-      line-height: 2.2rem;
+    header p {
+      font-size: 1.05rem;
+      color: var(--color-accent);
+      max-width: 750px;
+      margin: 0 auto 2rem;
+      animation: fadeSlideIn 2s ease forwards 0.5s;
     }
 
-    .contact-links a {
-      position: relative;
-      font-weight: 500;
-      font-size: 1.2rem;
+    .contact-panel {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--color-accent);
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      animation: fadeSlideIn 1.5s ease forwards 0.3s;
+    }
+
+    .contact-panel p {
+      margin: 1rem 0;
+    }
+
+    .contact-panel a {
+      color: var(--color-text);
       text-decoration: none;
-      background: linear-gradient(to right, #00ffc8, #b983ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: 0.3s ease;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
     }
 
-    .contact-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: #00ffc8;
-      transition: 0.4s ease;
+    .contact-panel a:hover {
+      border-bottom: 1px solid var(--color-text);
     }
 
-    .contact-links a:hover::after {
-      width: 100%;
+    .tiles {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 4rem 2rem;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
+    .tile {
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: #fff;
+      width: 240px;
+      text-align: center;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .tile.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tile h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tile p {
+      font-size: 0.95rem;
+      color: var(--color-accent);
+    }
+
+    .tile button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      background: transparent;
+      border: 1px solid #888;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tile:hover {
+      background: var(--hover-bg);
+    }
+
+    .tile:hover button {
+      background: #333;
+      color: #fff;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
       }
-      .contact-links {
-        font-size: 1rem;
-        line-height: 2rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="container" data-aos="fade-up">
-    <h1>Contact <span class="accent">Fluxari</span></h1>
-    <p class="tagline">Let’s connect and create something magical</p>
-
-    <div class="contact-links">
-      <p>Email: <a href="mailto:fluxariindex@gmail.com">fluxariindex@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/thefluxari" target="_blank">@thefluxari</a></p>
-    </div>
+  <div class="logo-banner">
+    <img src="logo.png" alt="Fluxari Logo" />
   </div>
 
-  <!-- AOS Animation Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <header>
+    <h1>Contact Us</h1>
+    <p>Need to get in touch? Here's how you can reach out to The Fluxari.</p>
+  </header>
+
+  <section class="contact-panel">
+    <p>Email us at: <a href="mailto:fluxariindex@gmail.com">fluxariindex@gmail.com</a></p>
+    <p>Follow us on Instagram: <a href="https://instagram.com/thefluxari" target="_blank">@thefluxari</a></p>
+  </section>
+
+  <section class="tiles" id="tiles">
+    <div class="tile">
+      <h3>Email</h3>
+      <p>Send us a message anytime</p>
+      <button onclick="window.location.href='mailto:fluxariindex@gmail.com'">Email Us</button>
+    </div>
+    <div class="tile">
+      <h3>Instagram</h3>
+      <p>DM us directly or check our updates</p>
+      <button onclick="window.open('https://instagram.com/thefluxari', '_blank')">Open Insta</button>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2025 The Fluxari. All rights reserved.</div>
+    <div style="margin-top: 0.5rem;">[social icons placeholder]</div>
+  </footer>
+
   <script>
-    AOS.init({
-      duration: 1200,
-      once: true
-    });
+    const tiles = document.querySelectorAll('.tile');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    tiles.forEach(tile => observer.observe(tile));
   </script>
 </body>
 </html>

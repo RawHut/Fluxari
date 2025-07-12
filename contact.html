@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Fluxari</title>
+
+  <!-- Fonts and AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0d;
+      color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .accent {
+      color: #00ffc8;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      color: #f0f0f0;
+      font-size: 1rem;
+      transition: box-shadow 0.3s;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px #00ffc8;
+    }
+
+    form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    form button {
+      background: #00ffc8;
+      color: #000;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    form button:hover {
+      background: #00e6b3;
+      transform: scale(1.02);
+    }
+
+    .contact-info {
+      margin-top: 40px;
+    }
+
+    .contact-info h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #b983ff;
+    }
+
+    .contact-info a {
+      color: #00ffc8;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header data-aos="fade-down">
+      <h1>Contact <span class="accent">Fluxari</span></h1>
+      <p>Let’s connect and create something magical</p>
+    </header>
+
+    <main>
+      <form data-aos="fade-up" onsubmit="event.preventDefault(); alert('Message sent successfully! (Not really — form is static 😉)')">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-info" data-aos="fade-left">
+        <h2>Reach Us</h2>
+        <p>Email: <a href="mailto:fluxariindex@gmail.com">fluxariindex@gmail.com</a></p>
+        <p>Instagram: <a href="https://instagram.com/thefluxari" target="_blank">@thefluxari</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>

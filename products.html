@@ -3,122 +3,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product Catalog</title>
+  <title>Fluxari Products</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --font-heading: 'DM Serif Display', serif;
+      --font-body: 'IBM Plex Sans', sans-serif;
+      --color-bg: #fdfcfb;
+      --color-text: #222;
+      --color-accent: #555;
+      --color-border: #ddd;
+      --hover-bg: #f0f0f0;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .logo-banner {
+      padding: 1rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .logo-banner img {
+      max-height: 80px;
     }
 
     header {
-      padding: 20px;
       text-align: center;
-      background-color: #1f1f1f;
-      border-bottom: 1px solid #333;
+      padding: 3rem 2rem;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 2rem;
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      animation: fadeSlideIn 1.5s ease forwards;
+      opacity: 0;
     }
 
-    #product-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
+    header p {
+      font-size: 1.1rem;
+      color: var(--color-accent);
+      max-width: 750px;
+      margin: 0 auto 2rem;
+      animation: fadeSlideIn 2s ease forwards 0.5s;
     }
 
-    .product-card {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
+    .tiles {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 4rem 2rem;
+    }
+
+    .tile {
+      border: 1px solid var(--color-border);
       border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.2s;
+      background: #fff;
+      width: 260px;
+      text-align: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
-    .product-card:hover {
-      transform: scale(1.02);
+    .tile.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .product-card img {
-      width: 100%;
+    .tile img {
+      border-radius: 6px;
+      margin-bottom: 1rem;
       height: 180px;
       object-fit: cover;
-      border-bottom: 1px solid #333;
+      width: 100%;
     }
 
-    .product-card .content {
-      padding: 15px;
+    .tile h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
     }
 
-    .product-card h2 {
-      font-size: 1.1rem;
-      margin: 0 0 10px;
-    }
-
-    .product-card p {
+    .tile p {
       font-size: 0.95rem;
-      line-height: 1.4;
+      color: var(--color-accent);
+    }
+
+    .price-info {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .price-info del {
+      color: #999;
+      margin-right: 0.5rem;
+    }
+
+    .price-info strong {
+      color: #222;
+    }
+
+    .tile:hover {
+      background: var(--hover-bg);
     }
 
     footer {
+      background: #111;
+      color: #ccc;
       text-align: center;
-      padding: 10px;
-      background-color: #1f1f1f;
-      border-top: 1px solid #333;
-      color: #888;
-      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="logo-banner">
+    <img src="logo.png" alt="Fluxari Logo" />
+  </div>
+
   <header>
-    <h1>🛍️ Product Catalog</h1>
+    <h1>Explore Our Products</h1>
+    <p>Carefully curated for quality, design, and value — all under one elegant brand.</p>
   </header>
-  <main>
-    <div id="product-container"></div>
-  </main>
+
+  <section class="tiles" id="product-container">
+    <!-- JS will populate product tiles here -->
+  </section>
+
   <footer>
-    <p>&copy; 2025 Your Company</p>
+    <div>© 2025 The Fluxari. All rights reserved.</div>
   </footer>
 
   <script>
     fetch('products.json')
-      .then(response => response.json())
+      .then(res => res.json())
       .then(products => {
         const container = document.getElementById('product-container');
 
         products.forEach(product => {
-          const card = document.createElement('div');
-          card.className = 'product-card';
+          const tile = document.createElement('div');
+          tile.className = 'tile';
 
+          // Product Image
           const img = document.createElement('img');
-          img.src = `${product.folder}/${product.image}`;
+          img.src = `${product.folder}/${product.images[0]}`; // first image
           img.alt = product.title;
-          card.appendChild(img);
+          tile.appendChild(img);
 
-          const content = document.createElement('div');
-          content.className = 'content';
-
-          const title = document.createElement('h2');
+          // Title
+          const title = document.createElement('h3');
           title.textContent = product.title;
+          tile.appendChild(title);
 
+          // Description
           const desc = document.createElement('p');
           desc.textContent = product.description;
+          tile.appendChild(desc);
 
-          content.appendChild(title);
-          content.appendChild(desc);
-          card.appendChild(content);
-          container.appendChild(card);
+          // Pricing
+          const price = document.createElement('div');
+          price.className = 'price-info';
+          price.innerHTML = `<del>₹${product.price}</del> <strong>₹${product.final_price}</strong>`;
+          tile.appendChild(price);
+
+          container.appendChild(tile);
         });
+
+        // Animate tiles when they appear
+        const allTiles = document.querySelectorAll('.tile');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        allTiles.forEach(tile => observer.observe(tile));
       })
-      .catch(error => {
-        console.error('Error loading products:', error);
+      .catch(err => {
+        console.error("Failed to load products.json", err);
       });
   </script>
+
 </body>
 </html>

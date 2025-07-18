@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Catalog</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #1f1f1f;
+      border-bottom: 1px solid #333;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    #product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #333;
+    }
+
+    .product-card .content {
+      padding: 15px;
+    }
+
+    .product-card h2 {
+      font-size: 1.1rem;
+      margin: 0 0 10px;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #1f1f1f;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛍️ Product Catalog</h1>
+  </header>
+  <main>
+    <div id="product-container"></div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Your Company</p>
+  </footer>
+
+  <script>
+    fetch('products.json')
+      .then(response => response.json())
+      .then(products => {
+        const container = document.getElementById('product-container');
+
+        products.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+
+          const img = document.createElement('img');
+          img.src = `${product.folder}/${product.image}`;
+          img.alt = product.title;
+          card.appendChild(img);
+
+          const content = document.createElement('div');
+          content.className = 'content';
+
+          const title = document.createElement('h2');
+          title.textContent = product.title;
+
+          const desc = document.createElement('p');
+          desc.textContent = product.description;
+
+          content.appendChild(title);
+          content.appendChild(desc);
+          card.appendChild(content);
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading products:', error);
+      });
+  </script>
+</body>
+</html>

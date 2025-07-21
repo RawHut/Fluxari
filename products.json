@@ -1,0 +1,92 @@
+[
+  {
+    "folder": "p1",
+    "title": "void Arc ( Magnetic therapy ring ) ",
+    "description": "A stylish modern wooden chair perfect for living rooms or offices.",
+    "price": 199,
+    "discount": 0,
+    "final_price": 1199,
+    "images": ["p1.1.jpg", "p1.2.jpg"]
+  },
+  {
+    "folder": "p2",
+    "title": "Glass Coffee Table",
+    "description": "Tempered glass table with steel legs — sleek and minimalist.",
+    "price": 2500,
+    "discount": 15,
+    "final_price": 2125,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder3",
+    "title": "Leather Recliner Sofa",
+    "description": "Luxury leather recliner with plush cushions for ultimate comfort.",
+    "price": 8999,
+    "discount": 20,
+    "final_price": 7199,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder4",
+    "title": "Study Desk with Drawers",
+    "description": "Compact desk with storage space, ideal for study or home office.",
+    "price": 3400,
+    "discount": 10,
+    "final_price": 3060,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder5",
+    "title": "LED Floor Lamp",
+    "description": "Tall LED lamp with adjustable brightness and color modes.",
+    "price": 1450,
+    "discount": 5,
+    "final_price": 1378,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder6",
+    "title": "3-Piece Wall Art Set",
+    "description": "Abstract canvas artwork — perfect for modern interiors.",
+    "price": 1700,
+    "discount": 25,
+    "final_price": 1275,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder7",
+    "title": "Minimalist Bookshelf",
+    "description": "Open-design bookshelf for storage and display.",
+    "price": 2800,
+    "discount": 10,
+    "final_price": 2520,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder8",
+    "title": "Outdoor Patio Set",
+    "description": "Weather-resistant 4-piece furniture set with cushions.",
+    "price": 10500,
+    "discount": 18,
+    "final_price": 8610,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder9",
+    "title": "Metal Wall Clock",
+    "description": "Large industrial-style wall clock with a silent mechanism.",
+    "price": 2300,
+    "discount": 8,
+    "final_price": 2116,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  },
+  {
+    "folder": "folder10",
+    "title": "Foldable Laptop Table",
+    "description": "Portable table for bed or sofa, with cup holder and drawer.",
+    "price": 1100,
+    "discount": 12,
+    "final_price": 968,
+    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+  }
+]

@@ -1,53 +1,53 @@
 [
   {
     "folder": "p1",
+    "title": "Void Arc – Magnetic Therapy Ring",
+    "description": "Where design meets healing. The Void Arc ring harnesses magnetic therapy in a sleek modern form—an everyday essential for balance and wellness.",
+    "price": 199,
+    "discount": 0,
+    "final_price": 199,
+    "images": ["p1.1.jpg", "p1.2.jpg", "p1.3.jpg"]
+  },
+  {
+    "folder": "p2",
+    "title": "Eternal Cipher – Celtic Edition",
+    "description": "Infused with mystic energy and Celtic legacy, the Eternal Cipher ring weaves ancient symbols into modern form—perfect for seekers of heritage and style.",
+    "price": 249,
+    "discount": 0,
+    "final_price": 249,
+    "images": ["p2.1.jpg", "p2.2.jpg", "p2.3.jpg"]
+  },
+  {
+    "folder": "p3",
     "title": "Axis Blockchain",
     "description": "Futuristic style meets tech culture in the Axis Blockchain bracelet. Featuring a bold geometric form, it’s a sleek symbol of innovation and individuality—perfect for modern minimalists.",
     "price": 249,
     "discount": 0,
     "final_price": 249,
-    "images": ["p1.1.jpg", "p1.2.jpg", "p1.3.jpg", "p1.4.jpg", "p1.5.jpg"]
+    "images": ["p3.1.jpg", "p3.2.jpg", "p3.3.jpg", "p3.4.jpg", "p3.5.jpg"]
   },
   {
-    "folder": "p2",
+    "folder": "p4",
     "title": "Aureluis Nocturne Watch",
     "description": "Timeless elegance with a dark twist. The Aureluis Nocturne watch features a smoked dial and refined minimalism, blending quiet luxury with bold personality.",
     "price": 399,
     "discount": 0,
     "final_price": 399,
-    "images": ["p2.1.jpg", "p2.2.jpg", "p2.3.jpg", "p2.4.jpg", "p2.5.jpg"]
+    "images": ["p4.1.jpg", "p4.2.jpg", "p4.3.jpg", "p4.4.jpg", "p4.5.jpg"]
   },
   {
-    "folder": "p3",
+    "folder": "p5",
     "title": "Lucifer Deep Dial Watch",
     "description": "Dive into mystery with the Lucifer Deep Dial—a watch that embraces shadows with rich, obsidian tones and precision mechanics for those who live on the edge.",
     "price": 399,
     "discount": 0,
     "final_price": 399,
-    "images": ["p3.1.jpg", "p3.2.jpg", "p3.3.jpg", "p3.4.jpg", "p3.5.jpg"]
-  },
-  {
-    "folder": "p4",
-    "title": "Emerald Edge – Daniel Radcliff Edition",
-    "description": "A tribute to fearless sophistication. The Emerald Edge, inspired by Daniel Radcliff, features a bold green dial framed in gunmetal—where wizardry meets wristwear.",
-    "price": 299,
-    "discount": 0,
-    "final_price": 299,
-    "images": ["p4.1.jpg", "p4.2.jpg", "p4.3.jpg", "p4.4.jpg", "p4.5.jpg"]
-  },
-  {
-    "folder": "p5",
-    "title": "Bead Bracelet Pack of 4",
-    "description": "Earthy, grounded, and stylish—this 4-pack of bead bracelets brings balance and texture to any wrist. Perfect for layering or solo styling.",
-    "price": 199,
-    "discount": 0,
-    "final_price": 199,
     "images": ["p5.1.jpg", "p5.2.jpg", "p5.3.jpg", "p5.4.jpg", "p5.5.jpg"]
   },
   {
     "folder": "p6",
-    "title": "Braided Leather Bracelet",
-    "description": "A rugged classic with modern charm. The braided leather bracelet pairs heritage craftsmanship with an everyday-ready look.",
+    "title": "Emerald Edge – Daniel Radcliff Edition",
+    "description": "A tribute to fearless sophistication. The Emerald Edge, inspired by Daniel Radcliff, features a bold green dial framed in gunmetal—where wizardry meets wristwear.",
     "price": 299,
     "discount": 0,
     "final_price": 299,
@@ -55,20 +55,29 @@
   },
   {
     "folder": "p7",
-    "title": "Aurora Couple Watch Set",
-    "description": "Celebrate connection with the Aurora Couple Set—two watches, one story. Sleek, versatile designs made to match your shared journey.",
-    "price": 299,
+    "title": "Bead Bracelet Pack of 4",
+    "description": "Earthy, grounded, and stylish—this 4-pack of bead bracelets brings balance and texture to any wrist. Perfect for layering or solo styling.",
+    "price": 199,
     "discount": 0,
-    "final_price": 299,
+    "final_price": 199,
     "images": ["p7.1.jpg", "p7.2.jpg", "p7.3.jpg", "p7.4.jpg", "p7.5.jpg"]
   },
   {
     "folder": "p8",
-    "title": "Timeless Together Edition",
-    "description": "Love, synced in time. The Timeless Together edition brings romance to your wrist with a pair of perfectly coordinated watches, meant for everlasting moments.",
+    "title": "Braided Leather Bracelet",
+    "description": "A rugged classic with modern charm. The braided leather bracelet pairs heritage craftsmanship with an everyday-ready look.",
     "price": 299,
     "discount": 0,
     "final_price": 299,
     "images": ["p8.1.jpg", "p8.2.jpg", "p8.3.jpg", "p8.4.jpg", "p8.5.jpg"]
+  },
+  {
+    "folder": "p9",
+    "title": "Aurora Couple Watch Set – Timeless Together Edition",
+    "description": "Love, synced in time. The Timeless Together edition brings romance to your wrist with a pair of perfectly coordinated watches, meant for everlasting moments.",
+    "price": 299,
+    "discount": 0,
+    "final_price": 299,
+    "images": ["p9.1.jpg", "p9.2.jpg", "p9.3.jpg", "p9.4.jpg", "p9.5.jpg"]
   }
 ]

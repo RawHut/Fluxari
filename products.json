@@ -1,8 +1,8 @@
 [
   {
     "folder": "p1",
-    "title": "void Arc ( Magnetic therapy ring ) ",
-    "description": "A stylish modern wooden chair perfect for living rooms or offices.",
+    "title": "void Arc ( Magnetic therapy ring )",
+    "description": "Slip into serenity with the Void Arc, a minimalist magnetic therapy ring engineered to balance energy, reduce stress, and promote overall well-being. Crafted with precision and powered by dual-pole magnetic nodes, this sleek band isn’t just a statement piece—it’s wellness at your fingertips.",
     "price": 199,
     "discount": 0,
     "final_price": 1199,
@@ -10,15 +10,15 @@
   },
   {
     "folder": "p2",
-    "title": "Glass Coffee Table",
-    "description": "Tempered glass table with steel legs — sleek and minimalist.",
-    "price": 2500,
-    "discount": 15,
-    "final_price": 2125,
-    "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
+    "title": "Eternal Cipher – Celtic Edition",
+    "description": "Unlock the ancient code of timeless design. The Eternal Cipher – Celtic Edition is a symbolic fusion of mysticism and craftsmanship, inspired by sacred Celtic knots that echo infinity, unity, and the flow of life.",
+    "price": 249,
+    "discount": 0,
+    "final_price": 249,
+    "images": ["p2.1.jpg", "p2.2.jpg", "p2.3.jpg"]
   },
   {
-    "folder": "folder3",
+    "folder": "p3",
     "title": "Leather Recliner Sofa",
     "description": "Luxury leather recliner with plush cushions for ultimate comfort.",
     "price": 8999,
@@ -27,7 +27,7 @@
     "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
   },
   {
-    "folder": "folder4",
+    "folder": "p4",
     "title": "Study Desk with Drawers",
     "description": "Compact desk with storage space, ideal for study or home office.",
     "price": 3400,
@@ -36,7 +36,7 @@
     "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
   },
   {
-    "folder": "folder5",
+    "folder": "p5",
     "title": "LED Floor Lamp",
     "description": "Tall LED lamp with adjustable brightness and color modes.",
     "price": 1450,
@@ -45,7 +45,7 @@
     "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
   },
   {
-    "folder": "folder6",
+    "folder": "p6",
     "title": "3-Piece Wall Art Set",
     "description": "Abstract canvas artwork — perfect for modern interiors.",
     "price": 1700,
@@ -54,7 +54,7 @@
     "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
   },
   {
-    "folder": "folder7",
+    "folder": "p7",
     "title": "Minimalist Bookshelf",
     "description": "Open-design bookshelf for storage and display.",
     "price": 2800,
@@ -63,7 +63,7 @@
     "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
   },
   {
-    "folder": "folder8",
+    "folder": "p8",
     "title": "Outdoor Patio Set",
     "description": "Weather-resistant 4-piece furniture set with cushions.",
     "price": 10500,
@@ -72,7 +72,7 @@
     "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
   },
   {
-    "folder": "folder9",
+    "folder": "p9",
     "title": "Metal Wall Clock",
     "description": "Large industrial-style wall clock with a silent mechanism.",
     "price": 2300,
@@ -81,7 +81,7 @@
     "images": ["pic1.jpg", "pic2.jpg", "pic3.jpg"]
   },
   {
-    "folder": "folder10",
+    "folder": "p10",
     "title": "Foldable Laptop Table",
     "description": "Portable table for bed or sofa, with cup holder and drawer.",
     "price": 1100,

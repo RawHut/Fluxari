@@ -178,12 +178,18 @@
         const container = document.getElementById('product-container');
 
         products.forEach(product => {
+          // Link wrapper for each tile
+          const link = document.createElement('a');
+          link.href = `product.html?folder=${product.folder}`;
+          link.style.textDecoration = 'none';
+          link.style.color = 'inherit';
+
           const tile = document.createElement('div');
           tile.className = 'tile';
 
-          // Product Image
+          // Product Image (first)
           const img = document.createElement('img');
-          img.src = `Fluxari/${product.folder}/${product.images[0]}`; // updated path
+          img.src = `Fluxari/${product.folder}/${product.images[0]}`;
           img.alt = product.title;
           tile.appendChild(img);
 
@@ -205,7 +211,8 @@
             : `<strong>₹${product.final_price}</strong>`;
           tile.appendChild(price);
 
-          container.appendChild(tile);
+          link.appendChild(tile);
+          container.appendChild(link);
         });
 
         // Animate tiles when they appear

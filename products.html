@@ -183,7 +183,7 @@
 
           // Product Image
           const img = document.createElement('img');
-          img.src = `Fluxari/${product.folder}/${product.images[0]}`;
+          img.src = `Fluxari/${product.folder}/${product.images[0]}`; // updated path
           img.alt = product.title;
           tile.appendChild(img);
 
@@ -200,7 +200,9 @@
           // Pricing
           const price = document.createElement('div');
           price.className = 'price-info';
-          price.innerHTML = `<del>₹${product.price}</del> <strong>₹${product.final_price}</strong>`;
+          price.innerHTML = product.discount > 0
+            ? `<del>₹${product.price}</del> <strong>₹${product.final_price}</strong>`
+            : `<strong>₹${product.final_price}</strong>`;
           tile.appendChild(price);
 
           container.appendChild(tile);
